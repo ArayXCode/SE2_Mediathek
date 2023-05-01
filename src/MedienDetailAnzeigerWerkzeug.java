@@ -34,6 +34,17 @@ class MedienDetailAnzeigerWerkzeug
         assert medien != null : "Vorbedingung verletzt: (medien != null)";
         JTextArea selectedMedienTextArea = _ui.getMedienAnzeigerTextArea();
         selectedMedienTextArea.setText("");
+        for (Medium medium : medien)
+        {
+            selectedMedienTextArea.append(medium.getFormatiertenString());
+        }
+    }
+    /**
+     *     public void setMedien(List<Medium> medien)
+    {
+        assert medien != null : "Vorbedingung verletzt: (medien != null)";
+        JTextArea selectedMedienTextArea = _ui.getMedienAnzeigerTextArea();
+        selectedMedienTextArea.setText("");
         // TODO Aufgabe 3.3.1 Videospiel sollte hier ergänzt werden
         for (Medium medium : medien)
         {
@@ -48,8 +59,14 @@ class MedienDetailAnzeigerWerkzeug
                 DVD dvd = (DVD) medium;
                 selectedMedienTextArea.append(dvd.getFormatiertenString());
             }
+            else if (medium instanceof Videospiel)
+            {
+                Videospiel spiel = (Videospiel) medium;
+                selectedMedienTextArea.append(spiel.getFormatiertenString());
+            }
         }
     }
+     */
 
     /**
      * Gibt das Panel dieses Subwerkzeugs zurück.

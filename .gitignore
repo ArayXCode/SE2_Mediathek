@@ -1,2 +1,5 @@
 bin
 *.class
+*.md
+doc/legal
+doc/script-dir

@@ -48,6 +48,16 @@ public class DVDTest
         assertTrue("Dasselbe Exemplare der gleichen DVD sollte gleich sein",
                 _dvd1.equals(_dvd1));
     }
+    
+    @Test
+    public void testGetFormatiertenString()
+    {
+        String formatierterString = _dvd1.getMedienBezeichnung() + ":\n" + "    " + "Titel: " + _dvd1.getTitel()
+                + "\n" + "    " + "Kommentar: " + _dvd1.getKommentar() + "\n" + "    "
+                + "Regisseur: " + _dvd1.getRegisseur() + "\n" + "    " + "Laufzeit: "
+                + _dvd1.getLaufzeit() + "\n";
+        assertEquals(formatierterString, _dvd1.getFormatiertenString());
+    }
 
     protected DVD getMedium()
     {

@@ -48,6 +48,16 @@ public class CDTest
         assertTrue("Dasselbe Exemplare der gleichen CD sollte gleich sein",
                 _cd1.equals(_cd1));
     }
+    
+    @Test
+    public void testGetFormatiertenString()
+    {
+        String formatierterString = _cd1.getMedienBezeichnung() + ":\n" + "    " + "Titel: " + _cd1.getTitel()
+                + "\n" + "    " + "Kommentar: " + _cd1.getKommentar() + "\n" + "    "
+                + "Interpret: " + _cd1.getInterpret() + "\n" + "    " + "Spiellänge: "
+                + _cd1.getSpiellaenge() + "\n";;
+        assertEquals(formatierterString, _cd1.getFormatiertenString());
+    }
 
     private CD getMedium()
     {

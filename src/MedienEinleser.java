@@ -203,7 +203,7 @@ class MedienEinleser
         {
             String interpret = naechsterToken(tokenizer);
             String spiellaenge = naechsterToken(tokenizer);
-
+            //statisch: Medium, dynamisch: CD
             medium = new CD(titel, kommentar, interpret,
                     Integer.parseInt(spiellaenge));
         }
@@ -211,14 +211,14 @@ class MedienEinleser
         {
             String regisseuer = naechsterToken(tokenizer);
             int laufzeit = Integer.valueOf(naechsterToken(tokenizer));
-
+            //statisch: Medium, dynamisch: DVD
             medium = new DVD(titel, kommentar, regisseuer, laufzeit);
         }
         else if (medienBezeichnung.equals("Videospiel"))
         {
             String system = naechsterToken(tokenizer);
-
-            // medium = new Videospiel(titel, kommentar, system);
+          //statisch: Medium, dynamisch: Videospiel
+             medium = new Videospiel(titel, kommentar, system);
         }
         return medium;
     }
