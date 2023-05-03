@@ -217,8 +217,8 @@ class MedienEinleser
         else if (medienBezeichnung.equals("Videospiel"))
         {
             String system = naechsterToken(tokenizer);
-          //statisch: Medium, dynamisch: Videospiel
-             medium = new Videospiel(titel, kommentar, system);
+            //statisch: Medium, dynamisch: Videospiel
+            medium = new Videospiel(titel, kommentar, system);
         }
         return medium;
     }

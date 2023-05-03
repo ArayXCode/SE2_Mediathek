@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  * Ein Videospiel ist ein {@link Medium}.
  * @author TimGr
@@ -11,16 +9,17 @@ public class Videospiel implements Medium
      * Der Titel des Videospiels
      */
     private String _titel;
-    
+
     /**
      * Ein Kommentarzu dem Videospiel
      */
     private String _kommentar;
+
     /**
      * Ein System, auf dem das Videospiel gespielt werden kann
      */
     private String _system;
-    
+
     /**
      * @param titel Der Titel des Videospiels
      * @param kommentar Ein Kommentar zum Videospiel
@@ -55,7 +54,7 @@ public class Videospiel implements Medium
     {
         return "Videospiel";
     }
-    
+
     /**
      * Gibt den Titel des Videospiels zurück
      * @return Titel des VideoSpiels
@@ -66,14 +65,14 @@ public class Videospiel implements Medium
     }
 
     /**
-     * Gibt die Konsolen des Videospiels zurück
-     * @return konsole des VideoSpiels
+     * Gibt das System des Videospiels zurück
+     * @return System des Videospiels
      */
     public String get_system()
     {
         return _system;
     }
-    
+
     @Override
     public String getFormatiertenString()
     {
