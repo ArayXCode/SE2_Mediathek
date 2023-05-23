@@ -13,7 +13,10 @@ public class DVDTest
     private static final String BEZEICHNUNG = "DVD";
     private static final int LAENGE = 100;
     private static final String REGISSEUR = "DVD Regisseur";
-    private static final String FORMATIERTER_STRING = BEZEICHNUNG+":\n    Titel: "+TITEL+"\n    Kommentar: "+KOMMENTAR+"\n    Regisseur: "+REGISSEUR+"\n    Laufzeit: "+LAENGE+"\n";
+    private static final String FORMATIERTER_STRING = BEZEICHNUNG
+            + ":\n    Titel: " + TITEL + "\n    Kommentar: " + KOMMENTAR
+            + "\n    Regisseur: " + REGISSEUR + "\n    Laufzeit: " + LAENGE
+            + "\n";
     private DVD _dvd1;
     private DVD _dvd2;
 
@@ -54,6 +57,16 @@ public class DVDTest
     }
 
     @Test
+    public final void testberechneMietgebuehr()
+    {
+        Medium medium = getMedium();
+        assertNotNull(medium.berechneMietgebuehr(1));
+        assertEquals(new Geldbetrag(300), medium.berechneMietgebuehr(1));
+        assertEquals(new Geldbetrag(2 * 300), medium.berechneMietgebuehr(2));
+        //assertFalse(medium.berechneMietgebuehr(ANZAHLTAGE) == _betrag1);
+    }
+
+    @Test
     /*
      * Von ein und der selben DVD kann es mehrere Exemplare geben, die von
      * unterschiedlichen Personen ausgeliehen werden können.
@@ -69,9 +82,9 @@ public class DVDTest
     @Test
     public final void testGetFormatiertenString()
     {
-    	 Medium medium = getMedium();
-         assertNotNull(medium.getFormatiertenString());
-         assertEquals(FORMATIERTER_STRING, medium.getFormatiertenString());
+        Medium medium = getMedium();
+        assertNotNull(medium.getFormatiertenString());
+        assertEquals(FORMATIERTER_STRING, medium.getFormatiertenString());
     }
 
     protected DVD getMedium()

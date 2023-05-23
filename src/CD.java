@@ -5,7 +5,7 @@
  * @author SE2-Team
  * @version SoSe 2021
  */
-class CD extends AbstractMedium implements Medium
+class CD extends AbstractMedium
 {
     /**
      * Der Interpret der CD
@@ -16,17 +16,6 @@ class CD extends AbstractMedium implements Medium
      * Die Spiellänge der CD in Minuten
      */
     private int _spiellaenge;
-
-    /**
-     * Ein Kommentar zum Medium
-     */
-    private String _kommentar;
-
-    /**
-     * Der Titel des Mediums
-     * 
-     */
-    private String _titel;
 
     /**
      * Initialisiert ein neues Exemplar.
@@ -116,9 +105,9 @@ class CD extends AbstractMedium implements Medium
     @Override
     public String getFormatiertenString()
     {
-        return getMedienBezeichnung() + super.getFormatiertenString() + "\n" + "    "
-                + "Interpret: " + _interpret + "\n" + "    " + "Spiellänge: "
-                + _spiellaenge + "\n";
+        return getMedienBezeichnung() + super.getFormatiertenString() + "\n"
+                + "    " + "Interpret: " + _interpret + "\n" + "    "
+                + "Spiellänge: " + _spiellaenge + "\n";
     }
 
     @Override

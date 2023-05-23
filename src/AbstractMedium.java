@@ -3,20 +3,19 @@
  * @author TimGr
  *
  */
-abstract class AbstractMedium
+abstract class AbstractMedium implements Medium
 {
     /**
      * Der Titel des Mediums
      * 
      */
     private String _titel;
-    
+
     /**
      * Ein Kommentar zum Medium
      */
     private String _kommentar;
-    
-    
+
     /**
      * @param _titel Titel des Mediums
      * @param _kommentar Kommentar zum Medium
@@ -27,14 +26,14 @@ abstract class AbstractMedium
      * @ensure {@link #getTitel()} == titel
      * @ensure {@link #getKommentar()} == kommentar
      */
-    public AbstractMedium(String titel, String kommentar)
+    protected AbstractMedium(String titel, String kommentar)
     {
         assert titel != null : "Vorbedingung verletzt: _titel != null";
         assert kommentar != null : "Vorbedingung verletzt: _kommentar != null";
         _titel = titel;
         _kommentar = kommentar;
     }
-    
+
     /**
      * Gibt den Titel des Mediums zurück.
      * 
@@ -46,7 +45,7 @@ abstract class AbstractMedium
     {
         return _titel;
     }
-    
+
     /**
      * Ändert den Titel des Mediums.
      * 
@@ -60,7 +59,7 @@ abstract class AbstractMedium
         assert titel != null : "Vorbedingung verletzt: titel != null";
         _titel = titel;
     }
-    
+
     /**
      * Gibt den Kommentar zu diesem Medium zurück.
      * 
@@ -68,7 +67,7 @@ abstract class AbstractMedium
      * 
      * @ensure result != null
      */
-    public  String getKommentar()
+    public String getKommentar()
     {
         return _kommentar;
     }
@@ -86,8 +85,7 @@ abstract class AbstractMedium
         assert kommentar != null : "Vorbedingung verletzt: kommentar != null";
         _kommentar = kommentar;
     }
-    
-    
+
     /**
      * Gibt die Bezeichnung für die Medienart zurück.
      * 
@@ -96,7 +94,7 @@ abstract class AbstractMedium
      * @ensure result != null
      */
     public abstract String getMedienBezeichnung();
-    
+
     /**
      * Gibt einen formatierten Text mit allen Eigenschaften des Mediums zurück.
      * Jedes Attribute steht in einer eigenen Zeile mit der Form "Attributename:
@@ -109,10 +107,10 @@ abstract class AbstractMedium
      */
     public String getFormatiertenString()
     {
-        return ":\n" + "    " + "Titel: " + _titel
-                + "\n" + "    " + "Kommentar: " + _kommentar;
+        return ":\n" + "    " + "Titel: " + _titel + "\n" + "    "
+                + "Kommentar: " + _kommentar;
     }
-    
+
     /**
     * Berechnet die Mietgebuehr in Eurocent f¨ur eine angegebene Mietdauer
     * in Tagen
@@ -125,9 +123,9 @@ abstract class AbstractMedium
     **
     @ensure result != null
     */
-    public Geldbetrag berechneMietgebuehr (int mietTage)
+    public Geldbetrag berechneMietgebuehr(int mietTage)
     {
-        int mietgebuehr = 300 * mietTage;
-        return new Geldbetrag(mietgebuehr);
+        assert mietTage > 0 : "Vorbedingung verletzt: mietTage > 0";
+        return new Geldbetrag(300 * mietTage);
     }
 }

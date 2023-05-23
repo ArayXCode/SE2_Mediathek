@@ -5,22 +5,12 @@
  * @author SE2-Team
  * @version SoSe 2021
  */
-class Videospiel extends AbstractMedium implements Medium
+class Videospiel extends AbstractMedium
 {
     /**
      * Das System, auf dem das Spiel lauffähig ist
      */
     private String _system;
-
-    /**
-     * Ein Kommentar zum Medium
-     */
-    private String _kommentar;
-
-    /**
-     * Der Titel des Mediums
-     */
-    private String _titel;
 
     /**
      * Initialisiert ein neues Videospiel.
@@ -111,13 +101,14 @@ class Videospiel extends AbstractMedium implements Medium
     @Override
     public String getFormatiertenString()
     {
-        return getMedienBezeichnung() + super.getFormatiertenString() +  "\n" + "    "
-                + "System: " + _system + "\n";
+        return getMedienBezeichnung() + super.getFormatiertenString() + "\n"
+                + "    " + "System: " + _system + "\n";
     }
 
     @Override
     public Geldbetrag berechneMietgebuehr(int mietTage)
     {
+        assert mietTage > 0 : "Vorbedingung verletzt: mietTage >0";
         return new Geldbetrag(200);
     }
 }

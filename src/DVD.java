@@ -6,7 +6,7 @@
  * @version SoSe 2021
  * 
  */
-class DVD extends AbstractMedium implements Medium
+class DVD extends AbstractMedium
 {
     /**
      * Die Laufzeit des Hauptteils der DVD (in Minuten).
@@ -17,17 +17,6 @@ class DVD extends AbstractMedium implements Medium
      * Der Regisseur des Inhalts der DVD.
      */
     private String _regisseur;
-
-    /**
-     * Ein Kommentar zum Medium
-     */
-    private String _kommentar;
-
-    /**
-     * Der Titel des Mediums
-     * 
-     */
-    private String _titel;
 
     /**
      * Initialisiert eine neue DVD mit den gegebenen Daten.
@@ -135,15 +124,16 @@ class DVD extends AbstractMedium implements Medium
     @Override
     public void setTitel(String titel)
     {
-        super.setTitel(titel);;
+        super.setTitel(titel);
+        ;
     }
 
     @Override
     public String getFormatiertenString()
     {
-        return getMedienBezeichnung() + super.getFormatiertenString() + "\n" + "    "
-                + "Regisseur: " + _regisseur + "\n" + "    " + "Laufzeit: "
-                + _laufzeit + "\n";
+        return getMedienBezeichnung() + super.getFormatiertenString() + "\n"
+                + "    " + "Regisseur: " + _regisseur + "\n" + "    "
+                + "Laufzeit: " + _laufzeit + "\n";
     }
 
     @Override

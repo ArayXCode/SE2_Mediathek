@@ -23,7 +23,10 @@ public class CDTest
     private static final int LAENGE = 100;
     private static final int GEBUEHR = 300;
     private static final int ANZAHLTAGE = 1;
-    private static final String FORMATIERTER_STRING = CD_BEZEICHNUNG+":\n    Titel: "+TITEL+"\n    Kommentar: "+KOMMENTAR+"\n    Interpret: "+INTERPRET+"\n    Spiellänge: "+LAENGE+"\n";
+    private static final String FORMATIERTER_STRING = CD_BEZEICHNUNG
+            + ":\n    Titel: " + TITEL + "\n    Kommentar: " + KOMMENTAR
+            + "\n    Interpret: " + INTERPRET + "\n    Spiellänge: " + LAENGE
+            + "\n";
     private CD _cd1;
     private CD _cd2;
     private Geldbetrag _betrag1;
@@ -86,17 +89,19 @@ public class CDTest
     @Test
     public final void testGetFormatiertenString()
     {
-    	 Medium medium = getMedium();
-         assertNotNull(medium.getFormatiertenString());
-         assertEquals(FORMATIERTER_STRING, medium.getFormatiertenString());
+        Medium medium = getMedium();
+        assertNotNull(medium.getFormatiertenString());
+        assertEquals(FORMATIERTER_STRING, medium.getFormatiertenString());
     }
-    
+
     @Test
     public final void testberechneMietgebuehr()
     {
         Medium medium = getMedium();
         assertNotNull(medium.berechneMietgebuehr(ANZAHLTAGE));
         assertEquals(_betrag1, medium.berechneMietgebuehr(ANZAHLTAGE));
+        assertEquals(new Geldbetrag(2 * 300),
+                medium.berechneMietgebuehr(ANZAHLTAGE + 1));
         assertFalse(medium.berechneMietgebuehr(ANZAHLTAGE) == _betrag1);
     }
 
@@ -104,6 +109,7 @@ public class CDTest
     {
         return new CD(TITEL, KOMMENTAR, INTERPRET, LAENGE);
     }
+
     private Geldbetrag getGeldbetrag()
     {
         return new Geldbetrag(GEBUEHR);

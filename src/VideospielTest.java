@@ -15,7 +15,9 @@ public class VideospielTest
     private static final String SYSTEM = "System";
     private static final int GEBUEHR = 200;
     private static final int ANZAHLTAGE = 1;
-    private static final String FORMATIERTER_STRING = BEZEICHNUNG+":\n    Titel: "+TITEL+"\n    Kommentar: "+KOMMENTAR+"\n    System: "+SYSTEM+"\n";
+    private static final String FORMATIERTER_STRING = BEZEICHNUNG
+            + ":\n    Titel: " + TITEL + "\n    Kommentar: " + KOMMENTAR
+            + "\n    System: " + SYSTEM + "\n";
     private Videospiel _videoSpiel;
     private Geldbetrag _betrag1;
 
@@ -61,7 +63,7 @@ public class VideospielTest
         medium.setTitel("Titel2");
         assertEquals("Titel2", medium.getTitel());
     }
-    
+
     @Test
     public final void testGetFormatiertenString()
     {
@@ -69,14 +71,18 @@ public class VideospielTest
         assertNotNull(medium.getFormatiertenString());
         assertEquals(FORMATIERTER_STRING, medium.getFormatiertenString());
     }
+
     @Test
     public final void testberechneMietgebuehr()
     {
         Medium medium = getMedium();
         assertNotNull(medium.berechneMietgebuehr(ANZAHLTAGE));
         assertEquals(_betrag1, medium.berechneMietgebuehr(ANZAHLTAGE));
+        assertEquals(new Geldbetrag(200),
+                medium.berechneMietgebuehr(ANZAHLTAGE + 1));
         assertFalse(medium.berechneMietgebuehr(ANZAHLTAGE) == _betrag1);
     }
+
     private Geldbetrag getGeldbetrag()
     {
         return new Geldbetrag(GEBUEHR);
